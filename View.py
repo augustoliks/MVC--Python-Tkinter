@@ -18,7 +18,7 @@ class View():
         self.submenu_file.add_command(label="Save", command=self.hello)
 
         self.submenu_help = UI.make_submenu(self.topbar_menu, "help")
-        self.submenu_help.add_command(label="New", command=self.hello)
+        self.submenu_help.add_command(label="Loadfile", command=self.controller.strategy_read_file)
         self.submenu_help.add_command(label="New", command=self.hello)
 
         self.root_container = UI.make_container(self.root)
@@ -30,7 +30,11 @@ class View():
         self.btn_hello_world = UI.make_button(self.root_container, "Clique aqui", "Calibri", "10")
         self.btn_hello_world.pack()
 
-        self.btn_hello_world["command"] =  self.controller.srtategy_read_file
+        self.txt_condition = UI.make_textbox(self.root_container, "10")
+        self.txt_condition.pack(side=BOTTOM)
+
+
+        self.btn_hello_world["command"] = self.controller.strategy_read_file
 
 
     def run(self):

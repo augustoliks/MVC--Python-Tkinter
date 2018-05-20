@@ -7,11 +7,12 @@ class Controller():
         self.view = view
         self.model = model
 
-    def srtategy_read_file(self):
+    def strategy_read_file(self):
         self.model.file_path = UI.get_path_file("*.py")
-        self.model.read_file()
+
+        self.model.read_file(self.view.txt_condition.get())
         self.view.lbl_msg["text"] = self.model.data_set
 
-    def srtategy_open_file(self, event):
+    def strategy_open_file(self, event):
         self.model.text = UI.get_path_file("*.py")
         self.view.lbl_msg["text"] = self.model.text

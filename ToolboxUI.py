@@ -4,6 +4,15 @@ from tkinter import filedialog
 class UI():
 
     @staticmethod
+    def make_textbox(container, width):
+        textbox = Entry(container)
+        textbox["width"] = 30
+        textbox["font"] = "Calibri"
+        return textbox
+
+
+
+    @staticmethod
     def make_button(container, text, font, width):
         btn = Button(container)
         btn["text"] = text
