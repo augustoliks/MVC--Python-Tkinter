@@ -7,8 +7,10 @@ class Controller():
         self.view = view
         self.model = model
 
-        self.view.btn_hello_world.bind("<Button>",self.search_behaviour)
+    def search_behaviour(self):
+        self.model.text = UI.get_path_file("*.py")
+        self.view.lbl_msg["text"] = self.model.text
 
-    def search_behaviour(self, event):
-        self.model.text = UI.get_path_file(self, "*.py")
+    def search_open_file(self, event):
+        self.model.text = UI.get_path_file("*.py")
         self.view.lbl_msg["text"] = self.model.text

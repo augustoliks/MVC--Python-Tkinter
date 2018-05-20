@@ -4,41 +4,41 @@ from tkinter import filedialog
 class UI():
 
     @staticmethod
-    def make_button(self, container, text, font, width):
-        self.btn = Button(container)
-        self.btn["text"] = text
-        self.btn["font"] = font
-        self.btn["width"] = width
+    def make_button(container, text, font, width):
+        btn = Button(container)
+        btn["text"] = text
+        btn["font"] = font
+        btn["width"] = width
 
-        return self.btn
-
-    @staticmethod
-    def make_label(self, container, text, font, size):
-
-        self.lbl = Label(container, text=text)
-        self.lbl["font"] = (font, size)
-
-        return self.lbl
+        return btn
 
     @staticmethod
-    def make_container(self, tk_object):
+    def make_label(container, text, font, size):
+
+        lbl = Label(container, text=text)
+        lbl["font"] = (font, size)
+
+        return lbl
+
+    @staticmethod
+    def make_container(tk_object):
         return Frame(tk_object)
 
-    def get_path_file(self, extensions):
+    @staticmethod
+    def get_path_file(extensions):
         filename = filedialog.askopenfile()
         return filename.name
 
-    def hello():
-        print ("Hello")
+    @staticmethod
+    def make_menu(tk_object):
+        return Menu(tk_object)
 
-    def make_top_menu(self, container):
-        menubar = Menu(container)
+    @staticmethod
+    def make_submenu(menu_container, text):
+        submenu = Menu(menu_container)
+        menu_container.add_cascade(label=text, menu=submenu)
+        return submenu
 
-        # create a pulldown menu, and add it to the menu bar
-        filemenu = Menu(menubar, tearoff=0)
-        filemenu.add_command(label="Save", command=self.hello())
-        filemenu.add_separator()
-        filemenu.add_command(label="Exit", command=container.quit)
-        menubar.add_cascade(label="File", menu=filemenu)
-
-        return filemenu
+    @staticmethod
+    def make_menu_container(tk_object, menu):
+        return tk_object.config(menu=menu)
