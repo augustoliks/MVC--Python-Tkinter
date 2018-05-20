@@ -26,8 +26,8 @@ class UI():
 
     @staticmethod
     def get_path_file(extensions):
-        filename = filedialog.askopenfile()
-        return filename.name
+        file_choose = filedialog.askopenfile()
+        return file_choose.name
 
     @staticmethod
     def make_menu(tk_object):

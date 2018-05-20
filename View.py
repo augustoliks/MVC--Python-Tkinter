@@ -30,7 +30,7 @@ class View():
         self.btn_hello_world = UI.make_button(self.root_container, "Clique aqui", "Calibri", "10")
         self.btn_hello_world.pack()
 
-        self.btn_hello_world["command"] =  self.controller.search_behaviour
+        self.btn_hello_world["command"] =  self.controller.srtategy_read_file
 
 
     def run(self):
